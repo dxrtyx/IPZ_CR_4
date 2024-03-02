@@ -17,12 +17,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -59,12 +59,19 @@ fun AffirmationItemCard(affirmationItem: ItemAffirmations, modifier: Modifier = 
                 .clip(shape = RoundedCornerShape(10.dp)),
             contentScale = ContentScale.Crop
         )
-        Text (
-            text = stringResource(id = affirmationItem.stringResourceId),
-            fontSize = 20.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(10.dp)
-        )
+        Button(
+            onClick = { /* Обробник події кнопки */ },
+            modifier = Modifier
+                .padding(10.dp)
+                .fillMaxWidth()
+        ) {
+            Text(
+                text = "Knopka",
+                fontSize = 20.sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+            )
+        }
     }
 }
 
