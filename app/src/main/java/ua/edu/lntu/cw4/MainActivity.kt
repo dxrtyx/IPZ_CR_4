@@ -70,11 +70,13 @@ fun AffirmationItemCard(affirmationItem: ItemAffirmations, modifier: Modifier = 
 
 @Composable
 fun AffirmationItemList(affirmationItemList: List<ItemAffirmations>) {
-    LazyVerticalGrid(columns = GridCells.Fixed(2), userScrollEnabled = true) {
+    LazyVerticalGrid(columns = GridCells.Fixed(1), userScrollEnabled = true) {
         items(affirmationItemList) {
                 affirmationItem -> AffirmationItemCard(
             affirmationItem = affirmationItem,
-            modifier = Modifier)
+            modifier = Modifier
+                .padding(10.dp)
+                )
         }
     }
 }
