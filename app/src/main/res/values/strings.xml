@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IPZ_CR_4</string>
+    <string name="affirmationitem1">photo №1</string>
+    <string name="affirmationitem2">photo №2</string>
+    <string name="affirmationitem3">photo №3</string>
+    <string name="affirmationitem4">photo №4</string>
+    <string name="affirmationitem5">photo №5</string>
+    <string name="affirmationitem6">photo №6</string>
+</resources>
