@@ -15,6 +15,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -29,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.rememberNavController
 import ua.edu.lntu.cw4.affirmations.data.Datasource
 import ua.edu.lntu.cw4.affirmations.model.ItemAffirmations
 import ua.edu.lntu.cw4.ui.theme.IPZ_CR_4Theme
@@ -37,13 +40,27 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val navController = rememberNavController()
+
             IPZ_CR_4Theme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                NavHost(
+                    navController = navController,
+                    startDestination = "listscreen"
                 ) {
-                    AffirmationItemList(affirmationItemList = Datasource().loadAffirmations())
-                }
+                    composable("listscreen") {
+                        AffirmationItemList(affirmationItemList = Datasource().loadAffirmations()) {
+                            navController.navigate("itemscreen")
+                        }
+                    }
+                    composable("itemscreen") {
+                        ItemScreen(number = 1)
+                    }
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+//
+//                }
             }
         }
     }
